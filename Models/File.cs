@@ -9,8 +9,9 @@ public class FileTool
         using (var reader = new StreamReader(file.OpenReadStream()))
             {
                 string line;
-                while ((line = await reader.ReadLineAsync()) != null)
+                while (( line = await reader.ReadLineAsync()) != null)
                     {
+                        if (line.Length == 0) continue;
                         var parts = line.Split(':');
                         if (parts.Length < 3)
                         {
